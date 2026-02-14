@@ -1,0 +1,178 @@
+/* Alturas base */
+.bg-img{
+  height: 100vh;
+  min-height: 500px;
+}
+
+
+
+/* ===========================
+   Background image
+=========================== */
+.bg-img {
+  left: 0;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  width: 100%;
+  position: relative;
+  height: 200px;
+  min-height: 200px;
+  z-index: 2;
+}
+
+
+
+/* Overlay */
+.bg-img::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4); /* primary-color */
+  z-index: 1;
+}
+
+
+.icon-login{
+    font-size: 2.5rem;
+    text-align: center;
+    color: var(--secondary-color);
+}
+
+/* Responsive */
+@media (min-width: 768px) {
+  .bg-img {
+    position: fixed;
+    width: 50%;
+    height: 100vh;
+  }
+}
+
+@media (min-width: 992px) {
+  .bg-img {
+    position: fixed;
+    width: 50%;
+    height: 100vh;
+  }
+}
+
+@media (min-width: 1200px) {
+  .bg-img {
+    position: fixed;
+    width: 40%;
+    height: 100vh;
+  }
+}
+
+/* ===========================
+   Background variants
+=========================== */
+.img-login {
+  background-image: url("/public/assets/img/hombre-login.jpg");
+}
+
+.img-reg {
+  background-image: url("/public/assets/img/hombre-registrando.jpg");
+}
+
+/* ===========================
+   Form wrapper
+=========================== */
+.form-wrap {
+  right: 0;
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  background-color: var(--white);  
+  display: flex;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+}
+
+.form-inner {
+  width: 88%;
+}
+
+
+
+/* Responsive form */
+@media (min-width: 768px) {
+  .form-wrap {
+    position: absolute;
+    width: 50%;
+  }
+}
+
+@media (min-width: 992px) {
+  .form-wrap {
+    position: absolute;
+    width: 50%;
+  }
+}
+
+@media (min-width: 1200px) {
+  .form-wrap {
+    position: absolute;
+    width: 60%;
+  }
+  .form-inner {
+    width: 48%;
+    }
+    .form-inner-reg {
+        padding: 2rem 0;
+    }
+}
+
+/* ===========================
+   Logo
+=========================== */
+.form-wrap figure {
+  width: 100%;
+}
+
+.form-wrap figure .logo {
+  width: 60px;
+}
+
+/* ===========================
+   Floating form
+=========================== */
+
+
+
+/* ===========================
+   Password toggle
+=========================== */
+.form-wrap .password-show-toggle {
+  cursor: pointer;
+  position: absolute;
+  right: 20px;
+  top: 15px;
+  z-index: 9;
+}
+
+.form-wrap .password-show-toggle span {
+  font-size: 20px;
+}
+
+.form-wrap .password-show-toggle span::before {
+  font-family: 'remixicon';
+  content: "\ecb7";
+}
+
+.form-wrap .password-show-toggle.active i {
+  color: red;
+}
+
+.form-wrap .password-show-toggle.active span::before {
+  content: "\ecb5";
+}
+
+
+
+
+

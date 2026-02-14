@@ -1,0 +1,19 @@
+/* Bootstrap */
+@import "bootstrap/dist/css/bootstrap.min.css";
+
+
+/*Reset (si decides usarlo) */
+@import "./base/_reset.css";
+
+/*Variables globales */
+@import "./base/_variables.css";
+@import "./base/_generales.css";
+
+/* Componentes */
+@import "./componentes/_form.css";
+
+/* Layout  */
+@import "./layouts/_login.css";
+@import "./layouts/_layout-dash.css";
+
+

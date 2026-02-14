@@ -1,0 +1,344 @@
+
+.main {
+    min-height: 100vh;
+    width: 100%;
+    /* overflow: hidden; */
+    background-color: #E9EBE0;
+}
+
+/*
+=============== SIDEBAR ===================
+*/
+
+.sidebar-item button {
+    all:unset;
+}
+
+#sidebar {
+    max-width: 280px;
+    min-width: 280px;
+    transition: all .35s ease-in-out;
+    background-color: #f3f3f3;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    overflow: hidden;
+    position: sticky;
+    top: 0;
+}
+
+
+
+#sidebar.collapsed {
+    margin-left: -280px;
+}
+
+.toggler-btn {
+    background-color: transparent;
+    cursor: pointer;
+    border: 0;
+}
+
+.toggler-btn i {
+    font-size: 1.5rem;
+    color: #041e41;
+    font-weight: bold;
+}
+
+.navbar {
+    padding: 1rem 1.25rem;
+}
+
+.sidebar-nav{
+    flex: 1 1 auto;
+}
+
+.sidebar-logo {
+    padding: 40px 36px 28px;
+    border-bottom: 1px solid rgba(246, 246, 254, .3);
+    position: sticky;
+    top: 0;
+    z-index: 9;
+}
+
+.sidebar-logo a h2 {
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    color: var(--black);
+    font-weight: 800;
+    margin: 0 0 0 1rem;
+}
+
+.sidebar-header {
+    color: var(--black);
+    font-size: 14px;
+    text-transform: uppercase;
+    margin-bottom: .5rem;
+    margin-top: 1rem;
+    padding-left: 20px;
+    font-weight: 600;
+
+}
+
+.list-menu {
+    padding: 1.1rem 2.25rem;
+    flex: 1;
+    overflow-y: auto;
+    margin-bottom: 0;
+    transition: all .3s ease-in;
+}
+
+.list-menu .sidebar-link {
+    cursor: pointer;
+    margin: 0 0 .9rem;
+    padding: 10px 20px;
+    display: block;
+    border-radius: 5px;
+    color: var(--black);
+    font-weight: 500;
+    transition: all .3s ease-in;
+}
+
+.list-menu .sidebar-link:hover {
+    background-color: #E9EBE0;
+}
+
+.list-menu .sidebar-link.active {
+    background-color: var(--primary-color);
+    color: var(--white);  
+    font-weight: 500;
+}
+
+.list-menu .sidebar-link i {
+    font-size: 1.1rem;
+    margin-right: 5px;
+}
+
+/* Scrollbar base: con espacio reservado */
+.list-menu::-webkit-scrollbar {
+    width: 6px;
+}
+
+/* Track siempre invisible */
+.list-menu::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+/* Thumb invisible por defecto */
+.list-menu::-webkit-scrollbar-thumb {
+    background-color: transparent;
+    border-radius: 3px;
+    transition: background-color 0.3s ease;
+}
+
+/* Mostrar thumb cuando el contenedor está en hover */
+.list-menu:hover::-webkit-scrollbar-thumb {
+    background-color: #68788d; /* visible al pasar el mouse por cualquier parte del contenedor */
+}
+
+/*
+=============== NAVBAR ===================
+*/
+.links-right {
+    gap: 16px;
+}
+
+.wrap-noti,
+.wrap-perfil{
+    /* background-color: aqua; */
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+}
+
+.wrap-noti {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all .3s ease-in;
+    font-size: 1.1rem;
+}
+
+.wrap-noti:hover{
+    background-color: aqua;
+}
+
+.wrap-perfil {
+    background-color: #ffc37b;
+}
+
+.wrap-perfil img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.wrap-perfil .dropdown-menu {
+    margin-right: 15px;
+    z-index: 10;
+}
+
+.navbar-perfil {
+    position: sticky;
+    top: 0;
+    right: 0;
+    left: 0;
+    background-color: #f6f6fe;
+}
+  
+
+
+.sidebar-item form {
+  width: 100%;
+}
+
+.sidebar-item button.sidebar-link {
+  width: 100%;
+  display: block;
+  box-sizing: border-box;
+}
+
+
+/*CARDS*/
+.nei-stat {
+    padding: 30px;
+    border-radius: 10px;
+    -webkit-transition: 0.3s all ease;
+    transition: 0.3s all ease;
+    border: 1px solid #b1d086;
+    background-color: var(--bg-white);
+    text-decoration: none;
+    color: var(--black);
+    box-shadow: 0 10px 20px -5px rgba(var(--bs-black-rgb), 0.1);
+    .icon{
+        background: #d0e3b3;
+        width: 3.5rem;
+        height: 3.5rem;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+    }
+}
+
+
+/* TAble  */
+.tb-inc td,
+.tb-inc thead{
+    font-size: 14px;
+}
+
+.wrap-table {
+    background: var(--white);
+    border-radius: 10px;
+    padding: 1rem 1.5rem;
+}
+
+.tb-inc thead th {
+    background: #b1d086;
+    color: #19240f !important;
+}
+
+
+/*Pagina de Incidencia*/
+.icon-not-inc {
+    height: 3.5rem;
+    width: 3.5rem;
+    background-color: #ffc0c0;
+    border-radius: 50%;
+    color: var(--secondary-color);
+    font-size: 1.5rem;
+}
+
+
+/* MOBILE FIRST */
+#sidebar {
+    position: fixed;
+    left: -280px;
+    top: 0;
+    z-index: 1000;
+}
+
+/* Sidebar visible */
+#sidebar.show {
+    left: 0;
+}
+
+#sidebar-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.4);
+    opacity: 0;
+    visibility: hidden;
+    transition: .3s;
+    z-index: 999;
+}
+
+#sidebar-overlay.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+@media (min-width: 992px) {
+
+    #sidebar {
+        position: sticky;
+        left: 0;
+    }
+
+    #sidebar-overlay {
+        display: none;
+    }
+    .toggler-btn{
+        display: none;
+    }
+    .links-right{
+        margin-left: auto;
+    }
+}
+/* TEMRIBNA */
+.rating-css div {
+    color: #ffe400;
+    font-size: 30px;
+    font-family: sans-serif;
+    font-weight: 800;
+    /* text-align: center; */
+    padding: 20px 0;
+}
+.rating-css input{
+    display: none;
+}
+
+.rating-css input + label {
+    font-size: 24px;
+    text-shadow: 1px 1px 0 #8f8420;
+    cursor: pointer;
+}
+
+.rating-css input:checked + label ~ label {
+    color: var(--border-input);
+}
+
+.rating-css label:active {
+    transform: scale(0.8);
+    transition: 0.3 ease;
+}
+
+
+/* Estilos del Icono de Perfil*/
+.icon-profile {
+    background-color: var(--primary-color);
+    color: var(--border-input);
+    height: 72px;
+    width: 72px;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    font-weight: medium;
+}
+
+
+
+
+

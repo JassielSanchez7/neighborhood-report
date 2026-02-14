@@ -1,0 +1,23 @@
+/* variables.css */
+:root {
+  --primary-color: #3F5528;
+  --secondary-color: #182815;
+  --bg-white: #F3F3F3;
+  --gray-light: #E9EBE0;
+  --white: #ffffff;
+  --light-gray: #f0f0f0;
+  --off-white: #f6f6f6;
+  --light-50: #ededff;
+  --light-100: #dedfff;
+  --black: #222222;
+  --gray: #858585;
+  --border-input: #d0e3b3; /* 200 */
+
+
+  --font-primary: "Albert Sans", sans-serif;
+
+  /* Breakpoints */
+  --md: 768px;
+  --lg: 992px;
+  --xl: 1200px;
+}

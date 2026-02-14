@@ -1,0 +1,39 @@
+.form-label {
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+  font-weight: 500;
+  /* color: ; */
+}
+
+/*Boton Principal*/
+
+.btn-primary {
+  background: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.btn-primary:hover {
+  background: var(--secondary-color);
+  border-color: var(--primary-color);
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary.active,
+.btn-check:checked + .btn-primary {
+  background: var(--secondary-color) !important;
+  border-color: var(--primary-color) !important;
+  box-shadow: none !important;
+}
+
+/*Input */
+.form-control,.form-select {
+  border-color: var(--border-input);
+}
+
+/* Cuando haces click / escribes */
+.form-control:focus,.form-select:focus {
+  border-color: var(--primary-color);
+  box-shadow: none; /* elimina el brillo azul Bootstrap */
+}
