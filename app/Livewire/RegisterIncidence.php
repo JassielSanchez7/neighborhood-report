@@ -5,6 +5,7 @@ namespace App\Livewire;
 use App\Models\Incidence;
 use App\Models\TypeIncidence;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Redirect;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 
@@ -23,7 +24,7 @@ class RegisterIncidence extends Component
 
     public $evidence;
 
-
+    
     public function registerIncidence()
     {
         
@@ -58,7 +59,12 @@ class RegisterIncidence extends Component
                     'image_path' => $path,
                 ]);
             }
-            DB::commit();
+            DB::commit();                      
+                
+            $this->reset();
+
+            notify()->success('Listo', 'incidencia registrada!');
+            return $this->redirectRoute('neighbor.incidences');
 
         } catch (\Exception $e) {
             //throw $th;
@@ -67,8 +73,7 @@ class RegisterIncidence extends Component
         }
         
 
-        $this->reset();
-        session()->flash('incidence_success','Incidencia Registrada con exito');
+        
 
     }
 

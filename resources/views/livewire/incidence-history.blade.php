@@ -27,7 +27,13 @@
                             <tr>
                                 <td class="px-0">
                                     <div class="d-flex align-items-center">
-                                        <img src="{{'storage/'.$incidence->images->first()->image_path}}" class="rounded-circle" width="40"
+                                        <img src="
+                                        {{
+                                            $incidence->images->first()?->image_path
+                                                ? asset('storage/'.$incidence->images->first()?->image_path)
+                                                : asset('storage/incidences/placeholder.jpg')
+                                        }}
+                                        " class="rounded-circle" width="40"
                                         alt="flexy" />
                                         <div class="ms-3">
                                         <h6 class="mb-0 fw-bolder">{{$incidence->description}}</h6>
@@ -37,14 +43,22 @@
                                 </td>
                                 <td class="px-0">{{$incidence->typeIncidence->name}}</td>
                                 <td class="px-0">
-                                <span class="badge bg-info">{{$incidence->status}}</span>
+                                <span class="badge 
+                                @if($incidence->status=="pendiente") bg-danger
+                                @elseif($incidence->status=="en revision") bg-warning
+                                @elseif($incidence->status=="en proceso") bg-secondary
+                                @elseif($incidence->status=="resuelta") bg-success
+                                @elseif($incidence->status=="cerrada") text-bg-dark
+                                @else bg-primary
+                                @endif
+                                ">{{$incidence->status}}</span>
                                 </td>
                                 <td class="px-0 text-dark fw-medium ">
                                     {{$incidence->created_at->format('M d,Y')}}
                                 </td>
                                 <td class="px-0 text-dark fw-medium text-end">
                                     <a href="{{route('neighbor.incidences.show',$incidence->id)}}">Ver</a>
-                                    @if($incidence->status == 'cerrada' && !$incidence->rating())
+                                    @if($incidence->status == 'cerrada' && !$incidence->rating)
                                         <a href="{{route('neighbor.rating',$incidence->id)}}">Evaluar</a>
                                     @endif
                                 </td>

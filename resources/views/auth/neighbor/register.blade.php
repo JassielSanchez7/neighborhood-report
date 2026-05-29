@@ -1,6 +1,6 @@
 @extends('layouts.neighbor.auth')
 
-@section('title','Login | Reporte Vecinal')
+@section('title','Registro | Reporte Vecinal')
 
 @section('content')
 

@@ -55,12 +55,21 @@ class IncidenceForm
                             ->label('Imagenes de la Incidencia')
                             ->multiple()
                             ->image()
-                            ->directory('incidences/')
+                            ->directory('incidences')
                             ->imageEditor()
                             ->maxSize(2048)
                             ->reorderable()
                             ->columnSpanFull()
                             ->helperText("Puedes arrastrar y soltar las imágenes para reorganizarlas.")
+                            ->afterStateHydrated(function ($component, $record) {
+                                if (!$record) return;
+
+                                $component->state(
+                                    $record->images
+                                        ->pluck('image_path')
+                                        ->toArray()
+                                );
+                            })
                             ->saveRelationshipsUsing(function($component, $state, $record){
                                 $record->images()->delete();
 

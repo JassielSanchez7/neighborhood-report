@@ -2,11 +2,14 @@
 
 namespace App\Models;
 
+use App\Mail\IncidenceStatusUpdated;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Mail;
 
 class Incidence extends Model
 {
@@ -50,6 +53,20 @@ class Incidence extends Model
     public function primaryImage():HasOne
     {
         return $this->hasOne(IncidenceImage::class)->limit(1);
+    }
+
+    //Metodo Para enviar correo si cambia de estado
+    protected static function booted()
+    {
+        static::updated(function ($incidence) {
+
+            if ($incidence->wasChanged('status')) {
+
+                Log::info($incidence->neighbor->email);
+                Mail::to($incidence->neighbor->email)
+                    ->send(new IncidenceStatusUpdated($incidence));
+            }
+        });
     }
 
 

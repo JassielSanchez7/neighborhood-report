@@ -40,6 +40,9 @@ class CreateNewNeighbor implements CreatesNewUsers
             'is_active' => true
         ]);
 
+        notify()->success('Vecino Registrado correctamente', 'Exito!');
+
+
         return $neighbor;
     }
 

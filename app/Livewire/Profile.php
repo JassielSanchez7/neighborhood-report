@@ -32,7 +32,9 @@ class Profile extends Component
             'email' => $this->email,
         ]);
         
-        session()->flash('profile_success','Perfil actualizado con exito');
+        // session()->flash('profile_success','Perfil actualizado con exito');
+        notify()->success('Listo', 'Perfil actualizado!');
+        return $this->redirectRoute('neighbor.profile');
 
     }
 

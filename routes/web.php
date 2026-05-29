@@ -13,6 +13,8 @@ Route::get('/', function () {
     return view('welcome');
 })->name('home');
 
+
+
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])
     ->name('dashboard');
@@ -28,7 +30,7 @@ Route::middleware('auth:neighbor')->group(function(){
         auth('neighbor')->logout();
         request()->session()->invalidate();
         request()->session()->regenerateToken();
-        return redirect('/');
+        return redirect('login');
     })->name('logout');
 
     Route::get('/register-incidence',RegisterIncidence::class)->name('neighbor.incidence');

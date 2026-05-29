@@ -57,12 +57,12 @@
                 </table>
             </div>
         @else
-            <div class="d-flex align-items-center flex-column justify-content-center">
+            <div class="d-flex align-items-center flex-column mt-5 justify-content-center">
                 <div class="icon-not-inc d-flex align-items-center justify-content-center">
                     <i class="ri-file-reduce-line"></i>
                 </div>
-                <p class="mt-3">Aun no has registrado incidencias</p>
-                <a href="{{route('neighbor.incidence')}}" class="btn btn-primary">Registrar Incidencia</a>
+                <p class="mt-3">Aun no has registrado calificaciones</p>
+                {{-- <a href="{{route('neighbor.incidence')}}" class="btn btn-primary">Registrar Incidencia</a> --}}
             </div>
         @endif
     </div>

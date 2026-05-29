@@ -15,6 +15,7 @@ use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
+use Illuminate\Database\Eloquent\Builder;
 use UnitEnum;
 
 class IncidenceResource extends Resource
@@ -47,12 +48,20 @@ class IncidenceResource extends Resource
         return IncidencesTable::configure($table);
     }
 
+    public static function getEloquentQuery(): Builder
+    {
+        return parent::getEloquentQuery()
+            ->with('images');
+    }
+
     public static function getRelations(): array
     {
         return [
             //
         ];
     }
+
+    
 
     public static function getPages(): array
     {

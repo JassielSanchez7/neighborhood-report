@@ -36,7 +36,8 @@ class RateIncidence extends Component
             'comment' => $this->comment,
         ]);
 
-        session()->flash('rating_success','Calificacion Registrada con exito');
+        notify()->success('Listo', 'Calificacion registrada!');
+        return $this->redirectRoute('neighbor.ratings');
 
 
     }

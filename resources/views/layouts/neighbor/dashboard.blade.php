@@ -18,12 +18,15 @@
     <link href="https://unpkg.com/filepond/dist/filepond.css" rel="stylesheet">
     <script src="https://unpkg.com/filepond/dist/filepond.js" defer></script>
  
+    <!-- Alertas con Laravel Notify -->
+    @notifyCss
     
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
     {{-- lib toastr para alertas --}}
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" integrity="sha512-vKMx8UnXk60zUwyUnUPM3HbQo8QfmNx7+ltw8Pm5zLusl1XIfwcxo8DbWCqMGKaWeNxWA8yrx5v3SaVpMvR3CA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" integrity="sha512-vKMx8UnXk60zUwyUnUPM3HbQo8QfmNx7+ltw8Pm5zLusl1XIfwcxo8DbWCqMGKaWeNxWA8yrx5v3SaVpMvR3CA==" crossorigin="anonymous" referrerpolicy="no-referrer" /> --}}
     @livewireStyles()
+
 </head>
 <body>
 
@@ -31,8 +34,8 @@
         <aside id="sidebar">
             <div class="sidebar-logo">
                 <a href="#" class="d-flex align-items-center">
-                    <img src="" alt="" width="50">
-                    <h2>Municipalidad La Victoria</h2>
+                    <img src="{{asset('assets/img/escudo_muni.png')}}" alt="" width="50">
+                    <h2 class="m-0">Municipalidad La Victoria</h2>
                 </a>                
             </div>
             <ul class="sidebar-nav list-menu">
@@ -148,8 +151,14 @@
         </div>
     </div>
 
+    <!-- Componente de Notificacion -->
+    <x-notify::notify />
 
+    <!-- Agregar Laravel Notify JavaScript -->
+    @notifyJs
     
     @livewireScripts
+
+
 </body>
 </html>
