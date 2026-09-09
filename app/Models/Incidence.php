@@ -21,6 +21,9 @@ class Incidence extends Model
         'type_incidence_id',
         'description',
         'location',
+        'latitude',
+        'longitude',
+        'occurred_at',
         'status'
     ];
 

@@ -35,7 +35,6 @@ class StatsOver extends StatsOverviewWidget
                 ->descriptionIcon('heroicon-m-newspaper')
                 ->color('info'),
 
-
         ];
     }
 }

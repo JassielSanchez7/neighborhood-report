@@ -48,3 +48,7 @@ h1, .h1 {
     font-size: calc(1.359375rem + 1.3125vw);
 }
 
+textarea{
+  resize: none;
+}
+

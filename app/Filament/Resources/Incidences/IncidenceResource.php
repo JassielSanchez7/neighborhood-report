@@ -18,6 +18,9 @@ use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use UnitEnum;
 
+use Filament\Tables\Actions\ExportAction;
+use App\Filament\Exports\IncidenceExporter;
+
 class IncidenceResource extends Resource
 {
     protected static ?string $navigationLabel = 'Incidencias';

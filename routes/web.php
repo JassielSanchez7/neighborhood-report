@@ -20,7 +20,7 @@ Route::view('dashboard', 'dashboard')
     ->name('dashboard');
 
 
-//Rutas Protegidas para el cliente
+//Rutas Protegidas para el ciudadano
 Route::middleware('auth:neighbor')->group(function(){
 
     Route::get('/my-account',NeighborDashboard::class)->name('neighbor.dashboard');

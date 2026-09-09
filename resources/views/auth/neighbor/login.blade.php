@@ -5,14 +5,18 @@
 @section('content')
 
     <div class="bg-img img-login">
-
+        
     </div>
     <div class="form-wrap">
         <div class="form-inner">
 
             
-            <div class="icon-login">
+            {{-- <div class="icon-login">
                 <i class="ri-login-box-fill"></i>
+            </div> --}}
+            <div class="logo-login d-flex align-items-center justify-content-center mb-4">
+                <img src="{{asset('assets/img/escudo_muni.png')}}" alt="" width="70">
+                <h2 class="m-0 text-center">Municipalidad<br>de La Victoria</h2>
             </div>
             <h1 class="title">Iniciar Sesion</h1>
             <p class="text-center mb-4">Introduzca sus datos para acceder</p>

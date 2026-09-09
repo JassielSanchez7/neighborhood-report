@@ -46,11 +46,14 @@ class NeighborForm
                         TextInput::make('password')
                             ->label('Contraseña')
                             ->password()
-                            ->dehydrateStateUsing(fn($state):bool => filled($state)? Hash::make($state) : null)
+                            ->dehydrateStateUsing(
+                                fn($state): ?string => filled($state)
+                                    ? Hash::make($state)
+                                    : null
+                            )
                             ->dehydrated(fn($state): bool => filled($state))
                             ->required(fn(string $operation):bool => $operation === 'create')
-                            ->revealable()
-                            ->required(),
+                            ->revealable(),
 
                         TextInput::make('password_confirmation')
                             ->label('Confirmar Contraseña')

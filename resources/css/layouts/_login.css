@@ -97,6 +97,18 @@
   width: 88%;
 }
 
+.form-inner .logo-login{
+  margin: 0 auto;
+}
+
+
+.form-inner .logo-login h2{
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  color:var(--black);
+  font-weight: 800;
+}
+
 
 
 /* Responsive form */

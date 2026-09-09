@@ -48,7 +48,7 @@ return [
     'exists'                 => 'El campo :attribute no existe.',
     'extensions'             => 'El campo :attribute debe tener una de las siguientes extensiones: :values.',
     'file'                   => 'El campo :attribute debe ser un archivo.',
-    'filled'                 => 'El campo :attribute es obligatorio.',
+    'filled'                 => 'El campo es obligatorio.',
     'gt'                     => [
         'array'   => 'El campo :attribute debe tener más de :value elementos.',
         'file'    => 'El campo :attribute debe tener más de :value kilobytes.',
@@ -130,7 +130,7 @@ return [
     'prohibited_unless'      => 'El campo :attribute está prohibido a menos que :other sea :values.',
     'prohibits'              => 'El campo :attribute prohibe que :other esté presente.',
     'regex'                  => 'El formato del campo :attribute no es válido.',
-    'required'               => 'El campo :attribute es obligatorio.',
+    'required'               => 'El campo es obligatorio.',
     'required_array_keys'    => 'El campo :attribute debe contener entradas para: :values.',
     'required_if'            => 'El campo :attribute es obligatorio cuando :other es :value.',
     'required_if_accepted'   => 'El campo :attribute es obligatorio si :other es aceptado.',

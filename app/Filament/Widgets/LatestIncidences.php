@@ -4,17 +4,24 @@ namespace App\Filament\Widgets;
 
 use App\Models\Incidence;
 use Filament\Actions\BulkActionGroup;
+use Filament\Forms\Components\DatePicker;
+use Filament\Forms\Components\Select;
 use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Filters\Filter;
 use Filament\Tables\Table;
 use Filament\Widgets\TableWidget;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
+use Filament\Actions\Action;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\IncidencesExport;
+
 
 class LatestIncidences extends TableWidget
 {
 
-    protected static ?int $sort = 1;
+    protected static ?int $sort = 3;
 
     protected int|string|array $columnSpan = 'full';
 
@@ -45,9 +52,9 @@ class LatestIncidences extends TableWidget
                     ->label('Estado')
                     ->badge(),
                 TextColumn::make('created_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
+                    ->label('Fecha de registro')
+                    ->date()
+                    ->sortable(),
                 TextColumn::make('updated_at')
                     ->dateTime()
                     ->sortable()
@@ -60,9 +67,11 @@ class LatestIncidences extends TableWidget
             ->heading('Ultimas Incidencias')
             ->filters([
                 //
+                
             ])
             ->headerActions([
                 //
+                
             ])
             ->recordActions([
                 //

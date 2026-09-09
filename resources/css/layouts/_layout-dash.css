@@ -338,6 +338,26 @@
     font-weight: medium;
 }
 
+.sidebar-item span{
+    font-size: 15.3px;
+}
+
+
+/* estilos para previe image */
+
+.preview-image{
+    position: relative;
+}
+
+.preview-image .btn-dash{
+    position: absolute;
+    right: 0;
+    top: -10px;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background-color: white;
+}
 
 
 

@@ -14,6 +14,7 @@ class RegisterIncidence extends Component
 
     use WithFileUploads;
 
+
     public $description;
 
     public $typeIncidence;
@@ -22,8 +23,15 @@ class RegisterIncidence extends Component
 
     public $reference;
 
+    public $incidenceDate;
+
+    public $incidenceTime;
+
     public $evidence;
 
+    public $latitude;
+    
+    public $longitude;
     
     public function registerIncidence()
     {
@@ -32,9 +40,20 @@ class RegisterIncidence extends Component
             'description' => 'required|string|max:100',
             'typeIncidence' => 'required',
             'location' => 'required|string|max:100',
+            'latitude' => 'required',
+            'longitude' => 'required',
             'reference' => 'nullable|string|max:100',
-            'evidence' => 'required|image|max:2048'
+            'evidence' => 'required|image|max:2048',
+            'incidenceDate' => 'required',
         ]);
+
+        $occurredAt = $this->incidenceDate;
+
+        if ($this->incidenceTime) {
+            $occurredAt .= ' ' . $this->incidenceTime;
+        } else {
+            $occurredAt .= ' 00:00:00';
+        }
 
 
 
@@ -46,11 +65,20 @@ class RegisterIncidence extends Component
             //     'location' => $this->location . ', ' . $this->reference,            
             // ]);
 
+           
+
             $incidence = auth('neighbor')->user()->incidences()->create([
                 'description' => $this->description,
                 'type_incidence_id' => $this->typeIncidence,
                 'location' => $this->location . ', ' . $this->reference,
+                'longitude' => $this->longitude,
+                'latitude' => $this->latitude,
+                'occurred_at' => $occurredAt,
             ]);
+
+           
+            
+
 
             if($this->evidence){
                 $path = $this->evidence->store('incidences');
@@ -62,6 +90,7 @@ class RegisterIncidence extends Component
             DB::commit();                      
                 
             $this->reset();
+
 
             notify()->success('Listo', 'incidencia registrada!');
             return $this->redirectRoute('neighbor.incidences');
@@ -85,4 +114,11 @@ class RegisterIncidence extends Component
             'typeIncidences' => $typeIncidences
         ])->layout('layouts.neighbor.dashboard');
     }
+
+    public function removeImage()
+        {
+            // unset($this->evidences[$index]);
+            // $this->evidences = array_values($this->evidences);
+            $this->reset('evidence');
+        }
 }

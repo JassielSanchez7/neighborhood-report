@@ -54,6 +54,17 @@ class AdminPanelProvider extends PanelProvider
             ])
             ->authMiddleware([
                 Authenticate::class,
-            ]);
+            ])->renderHook(
+                'panels::head.end',
+                fn () => '
+                    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css">
+                '
+            )
+            ->renderHook(
+                'panels::scripts.after',
+                fn () => '
+                    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+                '
+            );
     }
 }

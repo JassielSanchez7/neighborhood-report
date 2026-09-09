@@ -49,7 +49,7 @@
     </div>
 
     <div class="wrap-table mt-4">
-        <h3 class="fs-4 mt-4">Ultima actividad</h3>
+        <h3 class="fs-4 mt-4">Ultimas Incidencias Registradas</h3>
         @if($recentIncidences->count() > 0)
             <div class="table-responsive mt-4 px-2">
                 <table class="table tb-inc mb-0 text-nowrap varient-table align-middle">
